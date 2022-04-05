@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"github.com/goinaction/code/chapter3/words"
+	"io"
 	"io/ioutil"
 	"os"
 	"time"
@@ -79,7 +81,14 @@ func sum(s []int, c chan int) {
 	c <- sum // 把sum传到通道c
 }
 
-func main() {
+//func init() {
+//	if len(os.Args) != 2 {
+//		fmt.Println("Usage: ./example2 <url>")
+//		os.Exit(-1)
+//	}
+//}
+
+func main_bak() {
 
 	var sumNums int
 
@@ -105,4 +114,28 @@ func main() {
 	x, y := <-c, <-c
 
 	fmt.Println(x, y, x + y)
+
+	// 从web服务器获取响应
+	//r, err := http.Get("www.baidu.com")
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
+
+	// 从Body复制到Stdout
+	//io.Copy(os.Stdout, r.Body)
+	//if err := r.Body.Close(); err != nil {
+	//	fmt.Println(err)
+	//}
+
+	var bt bytes.Buffer
+
+	// 将字符串写入Buffer
+	bt.Write([]byte("Hello"))
+
+	// 使用Fprintf将字符串拼接到Buffer
+	fmt.Fprintf(&bt, "World!")
+
+	// 将Buffer的内容写到Stdout
+	io.Copy(os.Stdout, &bt)
 }
