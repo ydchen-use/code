@@ -1,8 +1,8 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"sync"
 	"testing"
@@ -13,13 +13,13 @@ func Add(a, b int) int {
 	return a + b
 }
 
-func TestName(t *testing.T)  {
-	for i := 0; i < 10; i++{
+func TestName(t *testing.T) {
+	for i := 0; i < 10; i++ {
 		Add(4, 5)
 	}
 }
 
-func TestName1(t *testing.T)  {
+func TestName1(t *testing.T) {
 	for i := 0; i <= 10; i++ {
 		fmt.Println(i)
 		time.Sleep(1 * time.Second)
@@ -27,7 +27,7 @@ func TestName1(t *testing.T)  {
 }
 
 // channel 简单测试
-func TestName2(t *testing.T)  {
+func TestName2(t *testing.T) {
 	ch1 := make(chan int)
 	go func() {
 		for i := 0; i < 10; i++ {
@@ -37,7 +37,7 @@ func TestName2(t *testing.T)  {
 		close(ch1)
 	}()
 
-	for range ch1{
+	for range ch1 {
 		//time.Sleep(5 * time.Second)
 		v := <-ch1
 		fmt.Println("v: ", v)
@@ -73,7 +73,7 @@ func TestName4(t *testing.T) {
 }
 
 // sync.Map 测试
-func TestName5(t *testing.T)  {
+func TestName5(t *testing.T) {
 	var m sync.Map
 	// 1. 写入
 	m.Store("qcrao", 18)
@@ -109,6 +109,15 @@ func TestName5(t *testing.T)  {
 func TestName6(t *testing.T) {
 	const dataFile = "files/snmp_mac_port.json"
 
+	//type Website struct {
+	//	Name 	string
+	//	Url 	string
+	//	Course	string
+	//}
+
+	// 定义map，解析json文件
+	var SnmpMacInfo map[string]interface{}
+
 	// 打开json文件
 	jsonFile, err := os.Open(dataFile)
 
@@ -120,7 +129,24 @@ func TestName6(t *testing.T) {
 	// 关闭wenjian
 	defer jsonFile.Close()
 
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-	fmt.Println(string(byteValue))
+	// 第一种解码方式，创建json解码器
+	decoder := json.NewDecoder(jsonFile)
+	err = decoder.Decode(&SnmpMacInfo)
+
+	if err != nil {
+		fmt.Println("解码失败", err.Error())
+	} else {
+		fmt.Println("解码成功")
+		fmt.Println(SnmpMacInfo)
+	}
+
+	// 第二种解码方式
+	//byteValue, _ := ioutil.ReadAll(jsonFile)
+	//
+	//var result map[string]interface{}
+	//json.Unmarshal([]byte(byteValue), &result)
+	//
+	//fmt.Println(string(byteValue))
+	//fmt.Println(result)
 
 }
