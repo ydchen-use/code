@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 	"sync"
 	"testing"
@@ -149,4 +150,21 @@ func TestName6(t *testing.T) {
 	//fmt.Println(string(byteValue))
 	//fmt.Println(result)
 
+}
+
+// log 测试
+func init() {
+	log.SetPrefix("message")
+	log.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
+}
+
+func TestName7(t *testing.T) {
+	// Println写到标准日志记录器
+	log.Println("message")
+
+	//Fatalln 在调用Println()之后会接着调用os.Exit()
+	log.Fatalln("Fatal message")
+
+	// Panicln 在调用Println()之后会接着调用panic()
+	//log.Panicln("panic message")
 }
