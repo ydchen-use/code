@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"reflect"
 	"sync"
 	"testing"
 	"time"
@@ -168,3 +169,120 @@ func TestName7(t *testing.T) {
 	// Panicln 在调用Println()之后会接着调用panic()
 	//log.Panicln("panic message")
 }
+
+//字符串中文存储
+func TestName8(t *testing.T) {
+	str1 := "Golang"
+	str2 := "Go语言"
+	fmt.Println(reflect.TypeOf(str2[2]).Kind())
+	fmt.Println(str1[2], string(str1[2]))
+	fmt.Printf("%d %c\n", str2[2], str2[2])
+	fmt.Println("len(str2): ", len(str2)) // len(str2): 8 语言2字占6字节
+
+	// 将str2转为 rune, rune可以正确处理中文
+	runeArr := []rune(str2)
+	fmt.Println(reflect.TypeOf(runeArr[2]).Kind())
+	fmt.Println(runeArr[2], string(runeArr[2]))
+	fmt.Println("len(runeArr): ", len(runeArr))
+}
+
+//指针的使用
+func add(num int) {
+	num += 1
+}
+
+func realAdd(num *int) {
+	*num += 1
+}
+
+func TestName9(t *testing.T) {
+	num := 100
+	add(num)
+	fmt.Println(num)
+
+	realAdd(&num)
+	fmt.Println(num)
+}
+
+// 错误捕获， defer 和 recover
+func get(index int) (ret int) {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Some error happened!", r)
+			ret = -1
+		}
+	}()
+	arr := [3]int{2, 3, 4}
+	return arr[index]
+}
+
+func TestName10(t *testing.T) {
+	fmt.Println(get(5))
+	fmt.Println("finished!")
+}
+
+//结构体使用
+type Student struct {
+	name string
+	age  int
+}
+
+func (stu *Student) hello(person string) string {
+	return fmt.Sprintf("hello %s, I am %s", person, stu.name)
+}
+
+func TestName11(t *testing.T) {
+	stu := &Student{
+		name: "Tom",
+	}
+	msg := stu.hello("Jack")
+	fmt.Println(msg) // hello Jack, I am Tom
+}
+
+// 接口interface使用
+type Person interface {
+	getName() string
+}
+
+func (stu *Student) getName() string {
+	return stu.name
+}
+
+func TestName12(t *testing.T) {
+	// 强制类型转换，实例化Student后， 转换为接口类型
+	var p Person = &Student{
+		name: "Tom",
+		age:  18,
+	}
+
+	fmt.Println(p.getName()) // Tom
+
+	// 空接口
+	m := make(map[string]interface{})
+	m["name"] = "Tom"
+	m["age"] = 18
+	m["score"] = [3]int{98, 99, 85}
+	fmt.Println(m) // map[age:18 name:Tom score:[98 99 85]]
+}
+
+// 并发编程
+// sync
+
+var wg sync.WaitGroup
+
+func download(url string) {
+	fmt.Println("start to download", url)
+	time.Sleep(time.Second) // 模拟耗时操作
+	wg.Done()
+}
+
+func TestName13(t *testing.T) {
+	for i := 0; i < 3; i++ {
+		wg.Add(1)
+		go download("a.com/")
+	}
+	wg.Wait()
+	fmt.Println("Done!")
+}
+
+// 字符串的高效拼接
