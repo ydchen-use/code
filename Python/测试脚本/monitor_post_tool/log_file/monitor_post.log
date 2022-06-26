@@ -1,0 +1,81 @@
+2022-05-26 11:29:07,622  mqtt_connect.py:147 : INFO  self.device_rsp_topic: $kibo/ids/p2p/+/device/rsp
+2022-05-26 11:29:07,623  mqtt_connect.py:67 : INFO  192.168.20.50:8883 thread[<MyMqtt(Thread-1, started 40696)>] running
+2022-05-26 11:29:07,623  mqtt_connect.py:68 : INFO  current threads: [<_MainThread(MainThread, started 67432)>, <MyMqtt(Thread-1, started 40696)>]
+2022-05-26 11:29:07,631  mqtt_connect.py:147 : INFO  self.device_rsp_topic: $kibo/ids/p2p/+/device/rsp
+2022-05-26 11:29:07,631  monitor_post.py:76 : INFO  Now g_mqtt_instances : {'Test_50': <MyMqtt(Thread-1, started 40696)>, 'Test': <MyMqtt(Thread-2, started 52416)>}
+2022-05-26 11:29:07,631  mqtt_connect.py:67 : INFO  in.aiot.swiftsec.com.cn:8883 thread[<MyMqtt(Thread-2, started 52416)>] running
+2022-05-26 11:29:07,633  mqtt_connect.py:68 : INFO  current threads: [<_MainThread(MainThread, started 67432)>, <MyMqtt(Thread-1, started 40696)>, <MyMqtt(Thread-2, started 52416)>]
+2022-05-26 11:29:07,640  _internal.py:113 : INFO   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-05-26 11:29:07,674  mqtt_connect.py:147 : INFO  self.device_rsp_topic: $kibo/ids/p2p/+/device/rsp
+2022-05-26 11:29:07,674  mqtt_connect.py:147 : INFO  self.device_rsp_topic: $kibo/ids/p2p/+/device/rsp
+2022-05-26 11:29:07,674  mqtt_connect.py:166 : INFO  subscribe topic [[('$kibo/ids/p2p/+/device/rsp', 1)]] result 0
+2022-05-26 11:29:07,675  mqtt_connect.py:166 : INFO  subscribe topic [[('$kibo/ids/p2p/+/device/rsp', 1)]] result 0
+2022-05-26 11:29:07,675  mqtt_connect.py:123 : INFO  Mqtt connected, code:0, client_id:[5de727b9b35f40bf817411e95dfcd341], client:<paho.mqtt.client.Client object at 0x000001C56CADD280>
+2022-05-26 11:29:07,675  mqtt_connect.py:123 : INFO  Mqtt connected, code:0, client_id:[219a03ed12de45c784d091a570eb066d], client:<paho.mqtt.client.Client object at 0x000001C56CADD730>
+2022-05-26 11:29:43,806  monitor_post.py:43 : INFO  <class 'dict'>
+2022-05-26 11:29:43,807  monitor_post.py:44 : INFO  post request body: {'device_id': 'KIBOIHJJRTAW', 'problem_type': [1, 3], 'platform_type': 2, 'time': 1728392837}
+2022-05-26 11:29:43,807  deal_data.py:81 : INFO  register_code: KIBOIHJJRTAW
+2022-05-26 11:29:43,807  deal_data.py:82 : INFO  platform_type: 2
+2022-05-26 11:29:43,807  deal_data.py:83 : INFO  problem_type: [1, 3]
+2022-05-26 11:29:43,807  deal_data.py:95 : INFO  PROBLEM_TYPE: ['1', '3']
+2022-05-26 11:29:43,807  monitor_post.py:48 : INFO  post data : {'device_id': 'KIBOIHJJRTAW', 'problem_type': ['1', '3'], 'platform_type': 2}
+2022-05-26 11:29:43,807  deal_data.py:41 : INFO  send_msg: {'methodName': 'reqRawCmd', 'requestId': '3c64026b-cbb4-439a-9e69-7ef6ee5cf765', 'payload': {'auth': '388264f69012881e1a1b9a7821bcd7c62790818d507e2917f872fd3c26a670ef', 'cmd': 'python3 /usr/lib/kbids/common/monitor_tool/monitor.py -d KIBOIHJJRTAW -p 1,3', 'nonce': '3c64026b-cbb4-439a-9e69-7ef6ee5cf765'}}
+2022-05-26 11:29:43,807  monitor_post.py:55 : INFO  platform_type : Test
+2022-05-26 11:29:43,807  mqtt_connect.py:174 : INFO  mqtt connect success
+2022-05-26 11:29:43,808  mqtt_connect.py:181 : INFO  publish topic : $kibo/ids/p2p/KIBOIHJJRTAW/cloud/req
+2022-05-26 11:29:43,808  mqtt_connect.py:184 : INFO  send to topic $kibo/ids/p2p/KIBOIHJJRTAW/cloud/req msg {"methodName": "reqRawCmd", "requestId": "3c64026b-cbb4-439a-9e69-7ef6ee5cf765", "payload": {"auth": "388264f69012881e1a1b9a7821bcd7c62790818d507e2917f872fd3c26a670ef", "cmd": "python3 /usr/lib/kbids/common/monitor_tool/monitor.py -d KIBOIHJJRTAW -p 1,3", "nonce": "3c64026b-cbb4-439a-9e69-7ef6ee5cf765"}} success
+2022-05-26 11:29:49,812  mqtt_connect.py:194 : INFO  cloud rsp: {'args': 'python3 /usr/lib/kbids/common/monitor_tool/monitor.py -d KIBOIHJJRTAW -p 1,3', 'code': 0, 'stdout': '', 'stderr': "2022-05-26 11:29:52,620  monitor.py:136 : INFO  final output: [{'problem_type': '1', 'message': 'ÓÐÁ÷Á¿£¬³ÌÐòÎ´ÔËÐÐ', 'status': 0}, {'problem_type': '3', 'message': 'ÓÐÁ÷Á¿£¬³ÌÐòÎ´ÔËÐÐ', 'status': 0}] end!\n"}
+2022-05-26 11:29:49,815  monitor_post.py:67 : INFO  return result: [{'problem_type': '1', 'message': 'ÓÐÁ÷Á¿£¬³ÌÐòÎ´ÔËÐÐ', 'status': 0}, {'problem_type': '3', 'message': 'ÓÐÁ÷Á¿£¬³ÌÐòÎ´ÔËÐÐ', 'status': 0}]
+2022-05-26 11:29:49,816  _internal.py:113 : INFO  127.0.0.1 - - [26/May/2022 11:29:49] "[37mPOST /remote_monitor HTTP/1.1[0m" 200 -
+2022-05-26 11:31:51,395  monitor_post.py:83 : INFO  listening to 127.0.0.1 : 5000
+2022-05-26 11:31:51,396  _internal.py:113 : INFO   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-05-26 11:31:54,309  mqtt_connect.py:147 : INFO  self.device_rsp_topic: $kibo/ids/p2p/+/device/rsp
+2022-05-26 11:31:54,320  mqtt_connect.py:67 : INFO  192.168.20.50:8883 thread[<MyMqtt(Thread-1, started 61900)>] running
+2022-05-26 11:31:54,320  mqtt_connect.py:68 : INFO  current threads: [<_MainThread(MainThread, started 65392)>, <MyMqtt(Thread-1, started 61900)>, <MyMqtt(Thread-2, initial)>]
+2022-05-26 11:31:54,336  mqtt_connect.py:147 : INFO  self.device_rsp_topic: $kibo/ids/p2p/+/device/rsp
+2022-05-26 11:31:54,337  mqtt_connect.py:67 : INFO  in.aiot.swiftsec.com.cn:8883 thread[<MyMqtt(Thread-2, started 29664)>] running
+2022-05-26 11:31:54,338  mqtt_connect.py:68 : INFO  current threads: [<_MainThread(MainThread, started 65392)>, <MyMqtt(Thread-1, started 61900)>, <MyMqtt(Thread-2, started 29664)>]
+2022-05-26 11:31:54,343  mqtt_connect.py:147 : INFO  self.device_rsp_topic: $kibo/ids/p2p/+/device/rsp
+2022-05-26 11:31:54,343  mqtt_connect.py:166 : INFO  subscribe topic [[('$kibo/ids/p2p/+/device/rsp', 1)]] result 0
+2022-05-26 11:31:54,343  mqtt_connect.py:123 : INFO  Mqtt connected, code:0, client_id:[9dcb4486fcaa47ca8b2cf49cd522214a], client:<paho.mqtt.client.Client object at 0x0000026CE4DBF280>
+2022-05-26 11:31:54,345  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName":"shell","requestId":"3b369b6b-86f2-4086-8622-834ae7e8ac09","topic":"$kibo/ids/p2p/00E269118D48/cloud/req","timestamp":1653531829831,"status":0,"message":"hello\n"}|
+2022-05-26 11:31:54,364  monitor_post.py:76 : INFO  Now g_mqtt_instances : {'Test_50': <MyMqtt(Thread-1, started 61900)>, 'Test': <MyMqtt(Thread-2, started 29664)>}
+2022-05-26 11:31:54,397  mqtt_connect.py:147 : INFO  self.device_rsp_topic: $kibo/ids/p2p/+/device/rsp
+2022-05-26 11:31:54,398  mqtt_connect.py:166 : INFO  subscribe topic [[('$kibo/ids/p2p/+/device/rsp', 1)]] result 0
+2022-05-26 11:31:54,398  mqtt_connect.py:123 : INFO  Mqtt connected, code:0, client_id:[e19a374fad36463ab1ed57ae302d4f30], client:<paho.mqtt.client.Client object at 0x0000026CE4DBF6D0>
+2022-05-26 11:31:54,448  _internal.py:113 : INFO   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-05-26 11:32:17,452  monitor_post.py:43 : INFO  <class 'dict'>
+2022-05-26 11:32:17,452  monitor_post.py:44 : INFO  post request body: {'device_id': 'KIBOIHJJRTAW', 'problem_type': [1, 3], 'platform_type': 2, 'time': 1728392837}
+2022-05-26 11:32:17,452  deal_data.py:81 : INFO  register_code: KIBOIHJJRTAW
+2022-05-26 11:32:17,453  deal_data.py:82 : INFO  platform_type: 2
+2022-05-26 11:32:17,453  deal_data.py:83 : INFO  problem_type: [1, 3]
+2022-05-26 11:32:17,453  deal_data.py:95 : INFO  PROBLEM_TYPE: ['1', '3']
+2022-05-26 11:32:17,453  monitor_post.py:48 : INFO  post data : {'device_id': 'KIBOIHJJRTAW', 'problem_type': ['1', '3'], 'platform_type': 2}
+2022-05-26 11:32:17,453  deal_data.py:41 : INFO  send_msg: {'methodName': 'reqRawCmd', 'requestId': '49c79a6b-64e1-412e-a5ff-2ee72becbe7a', 'payload': {'auth': 'c29d147ed983a554ccec4f3c02a24a8a60f7c3c9ce723e7fb07a43728298d479', 'cmd': 'python3 /usr/lib/kbids/common/monitor_tool/monitor.py -d KIBOIHJJRTAW -p 1,3', 'nonce': '49c79a6b-64e1-412e-a5ff-2ee72becbe7a'}}
+2022-05-26 11:32:17,453  monitor_post.py:55 : INFO  platform_type : Test
+2022-05-26 11:32:17,453  mqtt_connect.py:174 : INFO  mqtt connect success
+2022-05-26 11:32:17,453  mqtt_connect.py:181 : INFO  publish topic : $kibo/ids/p2p/KIBOIHJJRTAW/cloud/req
+2022-05-26 11:32:17,454  mqtt_connect.py:184 : INFO  send to topic $kibo/ids/p2p/KIBOIHJJRTAW/cloud/req msg {"methodName": "reqRawCmd", "requestId": "49c79a6b-64e1-412e-a5ff-2ee72becbe7a", "payload": {"auth": "c29d147ed983a554ccec4f3c02a24a8a60f7c3c9ce723e7fb07a43728298d479", "cmd": "python3 /usr/lib/kbids/common/monitor_tool/monitor.py -d KIBOIHJJRTAW -p 1,3", "nonce": "49c79a6b-64e1-412e-a5ff-2ee72becbe7a"}} success
+2022-05-26 11:32:22,706  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqRawCmd", "requestId": "49c79a6b-64e1-412e-a5ff-2ee72becbe7a", "timestamp": 1653535946400, "deviceId": "KIBOIHJJRTAW", "status": 200, "data": {"args": "python3 /usr/lib/kbids/common/monitor_tool/monitor.py -d KIBOIHJJRTAW -p 1,3", "code": 0, "stdout": "", "stderr": "2022-05-26 11:32:26,362  monitor.py:136 : INFO  final output: [{'problem_type': '1', 'message': '\u6709\u6d41\u91cf\uff0c\u7a0b\u5e8f\u672a\u8fd0\u884c', 'status': 0}, {'problem_type': '3', 'message': '\u6709\u6d41\u91cf\uff0c\u7a0b\u5e8f\u672a\u8fd0\u884c', 'status': 0}] end!\n"}, "message": "success"}|
+2022-05-26 11:32:23,458  mqtt_connect.py:194 : INFO  cloud rsp: {'args': 'python3 /usr/lib/kbids/common/monitor_tool/monitor.py -d KIBOIHJJRTAW -p 1,3', 'code': 0, 'stdout': '', 'stderr': "2022-05-26 11:32:26,362  monitor.py:136 : INFO  final output: [{'problem_type': '1', 'message': 'ÓÐÁ÷Á¿£¬³ÌÐòÎ´ÔËÐÐ', 'status': 0}, {'problem_type': '3', 'message': 'ÓÐÁ÷Á¿£¬³ÌÐòÎ´ÔËÐÐ', 'status': 0}] end!\n"}
+2022-05-26 11:32:23,459  monitor_post.py:67 : INFO  return result: [{'problem_type': '1', 'message': 'ÓÐÁ÷Á¿£¬³ÌÐòÎ´ÔËÐÐ', 'status': 0}, {'problem_type': '3', 'message': 'ÓÐÁ÷Á¿£¬³ÌÐòÎ´ÔËÐÐ', 'status': 0}]
+2022-05-26 11:32:23,460  _internal.py:113 : INFO  127.0.0.1 - - [26/May/2022 11:32:23] "[37mPOST /remote_monitor HTTP/1.1[0m" 200 -
+2022-05-26 11:48:15,452  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "ede6813fbe3b4439b8e47b31ee956f2f", "timestamp": 1653536899242, "deviceId": "KIBOBUGEAVDD", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 11:52:40,607  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "8e5d9127ad754b37bd03813211f895af", "timestamp": 1653537164395, "deviceId": "KIBOIHJJRTAW", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 11:52:40,807  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "80fc6a3731b549718ab69245a2dcd071", "timestamp": 1653537164594, "deviceId": "KIBOSDSJABJU", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 11:52:45,448  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqKbModifySecureDns", "requestId": "3e034e92b0b14bcb8dfc9f12dda9d49a", "timestamp": 1653537169242, "deviceId": "KIBOIHJJRTAW", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 11:52:46,414  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqKbModifySecureDns", "requestId": "8ffa61cb2c184430838539f05fe706fc", "timestamp": 1653537170209, "deviceId": "KIBOSDSJABJU", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 12:48:14,317  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "729b65b244994648a82f31e5c425fada", "timestamp": 1653540498452, "deviceId": "KIBOBUGEAVDD", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 12:48:21,594  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqKbModifySecureDns", "requestId": "ad82ecbfcf164b2795f0194fcbb4b012", "timestamp": 1653540505726, "deviceId": "KIBOBUGEAVDD", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 12:52:40,256  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "b88ed41de2cc4b78b181cccee9c29fff", "timestamp": 1653540764388, "deviceId": "KIBOIHJJRTAW", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 12:52:40,460  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "5827daec11604ceaa7524f821443c476", "timestamp": 1653540764594, "deviceId": "KIBOSDSJABJU", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 12:52:47,321  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqKbModifySecureDns", "requestId": "8f8af72db2dd4b91a0d44c99a49e4f1d", "timestamp": 1653540771458, "deviceId": "KIBOIHJJRTAW", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 12:52:48,259  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqKbModifySecureDns", "requestId": "e69ea07de83444eca502f2b5df8eaf97", "timestamp": 1653540772396, "deviceId": "KIBOSDSJABJU", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 13:48:13,082  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "4bba4e24f1074560a070583ed395bb91", "timestamp": 1653544097553, "deviceId": "KIBOBUGEAVDD", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 13:48:25,816  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqKbModifySecureDns", "requestId": "e2c2115c419a4d0ba06e213b50a76e18", "timestamp": 1653544110295, "deviceId": "KIBOBUGEAVDD", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 13:52:39,841  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "48f77bd593f24d8f9c3c821369ffd502", "timestamp": 1653544364319, "deviceId": "KIBOIHJJRTAW", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 13:52:39,994  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqDomainWhiteList", "requestId": "837a09b58bca47e0a374a677f1aff076", "timestamp": 1653544364476, "deviceId": "KIBOSDSJABJU", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 13:52:48,957  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqKbModifySecureDns", "requestId": "e85e38c7c0d340c286bac50c8fe5ae38", "timestamp": 1653544373439, "deviceId": "KIBOIHJJRTAW", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 13:52:49,864  mqtt_connect.py:134 : INFO  receive cloud msg : |{"methodName": "reqKbModifySecureDns", "requestId": "7148ed17aa6441ef8776d13d9511d3e4", "timestamp": 1653544374351, "deviceId": "KIBOSDSJABJU", "status": 200, "data": {}, "message": "accepted"}|
+2022-05-26 14:29:07,104  monitor_post.py:83 : INFO  listening to 127.0.0.1 : 5000
+2022-05-26 14:29:07,106  _internal.py:113 : INFO   * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
