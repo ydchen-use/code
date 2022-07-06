@@ -91,6 +91,7 @@ if __name__ == "__main__":
         if identifier:
             print(f"get lock {identifier}")
             app.run(debug=False)
+            time.sleep(10)
         else:
             print("not get lock, please wait...")
             time.sleep(60)
