@@ -37,7 +37,7 @@ def compute_min_edit_distance(str1, str2):
 
 if __name__ == "__main__":
     str1 = "abc"
-    str2 = "adc"
+    str2 = "adcf"
 
     edit_dis = compute_min_edit_distance(str1, str2)
     print(edit_dis)
