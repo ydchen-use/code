@@ -80,6 +80,45 @@ def init_mnist():
     print("Done!")
 
 
+def change_one_hot_label(X):
+    T = np.zeros((X.size, 10))
+    for idx, row in enumerate(T):
+        row[X[idx]] = 1
+
+    return T
+
+
+def load_mnist(normalize=True, flatten=True, one_hot_label=False):
+    """
+    导入数据集
+    :param normalize: 将图像的像素值正规化为0.0~1.0
+    :param flatten: 是否将图像展开为一维数组
+    :param one_hot_label:
+        为True时， 标签作为one-hot数组返回
+    :return:
+    """
+    if not os.path.exists(save_file):
+        init_mnist()
+
+    with open(save_file, "rb") as f:
+        dataset = pickle.load(f)
+
+    if normalize:
+        for key in ('train_img', 'test_img'):
+            dataset[key] = dataset[key].astype(np.float32)
+            dataset[key] /= 255
+
+    if one_hot_label:
+        dataset["train_label"] = change_one_hot_label(dataset["train_label"])
+        dataset["test_label"] = change_one_hot_label(dataset["test_label"])
+
+    if not flatten:
+        for key in ('train_img', 'test_img'):
+            dataset[key] = dataset[key].reshape(-1, 1, 28, 28)
+
+    return (dataset["train_img"], dataset["train_label"]), (dataset["test_img"], dataset["test_label"])
+
+
 if __name__ == "__main__":
     init_mnist()
 

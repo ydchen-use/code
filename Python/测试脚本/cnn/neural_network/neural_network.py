@@ -1,34 +1,7 @@
 import numpy as np
 
 
-def step_function(x):
-    """
-    阶跃函数
-    :param x:
-    :return:
-    """
-    return np.maximum(0, x)
-
-
-def sigmoid(x):
-    """
-    sigmoid函数
-    :param x:
-    :return:
-    """
-    return 1 / (1 + np.exp(-x))
-
-
-def identify_function(x):
-    return x
-
-
-def softmax(x):
-    c = np.max(x)
-    exp_a = np.exp(x - c)  # 溢出对策
-    sum_exp_a = np.sum(exp_a)
-    y = exp_a / sum_exp_a
-    return y
+from ..utils.general_func import sigmoid, identify_function
 
 
 def init_network():
