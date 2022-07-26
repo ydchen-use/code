@@ -1,13 +1,12 @@
 import os, sys
+sys.path.append(os.path.pardir)
 
 import numpy as np
 
-sys.path.append(os.path.pardir)
-
 from collections import OrderedDict
 
-from layers import Relu, Sigmoid, SoftmaxWithLoss, Affine
-from 测试脚本.cnn.gradient.gradient import numerical_gradient
+from layers.layers import Relu, SoftmaxWithLoss, Affine
+from 测试脚本.cnn.utils.gradient import numerical_gradient
 
 
 class TwoLayerNet:
@@ -17,12 +16,12 @@ class TwoLayerNet:
         self.params = {}
         self.params["W1"] = weight_size_std * np.random.randn(input_size, hidden_size)
         self.params["b1"] = np.zeros(hidden_size)
-        self.params["w2"] = weight_size_std * np.random.randn(hidden_size, output_size)
+        self.params["W2"] = weight_size_std * np.random.randn(hidden_size, output_size)
         self.params["b2"] = np.zeros(output_size)
 
         # 生成层
         self.layers = OrderedDict()
-        self.layers["Affine1"] = Affine(self.params["w1"], self.params["b1"])
+        self.layers["Affine1"] = Affine(self.params["W1"], self.params["b1"])
         self.layers["Relu1"] = Relu()
         self.layers["Affine2"] = Affine(self.params["W2"], self.params["b2"])
 

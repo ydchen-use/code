@@ -3,7 +3,7 @@ sys.path.append(os.pardir)  # 为了导入父目录中的文件
 import numpy as np
 
 from utils.general_func import softmax, cross_entropy_error
-from gradient import numerical_gradient
+from utils.gradient import numerical_gradient
 
 class SimpleNet:
     def __init__(self):

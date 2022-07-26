@@ -6,7 +6,7 @@ import pycurl
 from loguru import logger
 
 
-def request_url(url: str, timeout_time: int) -> dict:
+def request_url(url: str, timeout_time: float) -> dict:
     """
     执行request请求，获取响应码，响应时间
     :param url:
@@ -41,6 +41,12 @@ def request_url(url: str, timeout_time: int) -> dict:
             ret_dict["rsp_connect_time"] = connect_time * 1000
         except Exception as e:
             logger.info("connection error:" + str(e))
+            connect_time = c.getinfo(c.CONNECT_TIME)  # 获取建立连接时间
+            http_code = c.getinfo(c.HTTP_CODE)  # 获取HTTP状态码
+            total_time = c.getinfo(c.TOTAL_TIME)  # 获取传输的总时间
+            print(connect_time)
+            print(http_code)
+            print(total_time)
             c.close()
 
     except Exception as e:
@@ -50,8 +56,8 @@ def request_url(url: str, timeout_time: int) -> dict:
 
 
 if __name__ == "__main__":
-    URL = "http://qzsave.com"
-    timeout_time = 1
+    URL = "https://www.baidu.com"
+    timeout_time = 0.01
 
     ret_dict1 = request_url(URL, timeout_time)
 

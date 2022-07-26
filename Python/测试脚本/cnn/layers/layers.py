@@ -1,6 +1,9 @@
+import os, sys
+sys.path.append(os.path.pardir)
+
 import numpy as np
 
-from ..utils.general_func import softmax, cross_entropy_error
+from utils.general_func import softmax, cross_entropy_error
 
 
 class Relu:

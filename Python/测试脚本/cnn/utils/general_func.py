@@ -33,7 +33,7 @@ def relu(x):
 
 def relu_grad(x):
     grad = np.zeros(x)
-    grad[x>=0] = 1
+    grad[x >= 0] = 1
     return grad
 
 
@@ -47,6 +47,22 @@ def mean_squared_error(y, t):
     return 0.5 * np.sum((y-t)**2)
 
 
+def softmax(x):
+    if x.ndim == 2:
+        x = x.T
+        x = x - np.max(x, axis=0)
+        y = np.exp(x) / np.sum(np.exp(x), axis=0)
+
+        return y.T
+
+    x = x - np.max(x)  # 溢出对策
+    exp_a = np.exp(x)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+
+    return y
+
+
 def cross_entropy_error(y, t):
     if y.ndim == 1:
         t = t.reshape(1, t.size)
@@ -57,22 +73,6 @@ def cross_entropy_error(y, t):
 
     batch_size = y.shape[0]
     return -np.sum(np.log(y[np.arange(batch_size), t] + 1e-7)) / batch_size
-
-
-def softmax(x):
-    if x.ndim == 2:
-        x = x.T
-        x = x - np.max(x, axis=0)
-        y = np.exp(x) / np.sum(np.exp(x), axis=0)
-
-        return y.T
-
-    c = np.max(x)
-    exp_a = np.exp(x - c)  # 溢出对策
-    sum_exp_a = np.sum(exp_a)
-    y = exp_a / sum_exp_a
-
-    return y
 
 
 def softmax_loss(X, t):
