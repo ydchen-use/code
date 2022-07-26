@@ -7,7 +7,7 @@ sys.path.append(os.path.pardir)
 from collections import OrderedDict
 
 from layers import Relu, Sigmoid, SoftmaxWithLoss, Affine
-from ..gradient.gradient import numerical_gradient
+from 测试脚本.cnn.gradient.gradient import numerical_gradient
 
 
 class TwoLayerNet:
