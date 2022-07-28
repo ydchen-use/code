@@ -3,7 +3,7 @@ sys.path.append(os.pardir)
 import numpy as np
 
 from datasets.mnist.mnist import load_mnist
-from utils.general_func import cross_entropy_error
+from common.functions import cross_entropy_error
 
 # 导入mnist数据
 (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, one_hot_label=True)

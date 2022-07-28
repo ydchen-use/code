@@ -8,7 +8,7 @@ def _numerical_gradient(f, x):
     for idx in range(x.size):
         tmp_val = x[idx]
         # f(x+h)的计算
-        x[idx] = tmp_val + h
+        x[idx] = float(tmp_val) + h
         fxh1 = f(x)
 
         # f(x-h)的计算
@@ -19,6 +19,18 @@ def _numerical_gradient(f, x):
         x[idx] = tmp_val  # 还原值
 
     return grad
+
+
+def numerical_gradient_2d(f, X):
+    if X.ndim == 1:
+        return _numerical_gradient(f, X)
+    else:
+        grad = np.zeros_like(X)
+
+        for idx, x in enumerate(X):
+            grad[idx] = _numerical_gradient(f, x)
+
+        return grad
 
 
 def numerical_gradient(f, x):

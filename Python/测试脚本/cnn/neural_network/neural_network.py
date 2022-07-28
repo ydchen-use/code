@@ -1,7 +1,7 @@
 import numpy as np
 
 
-from ..utils.general_func import sigmoid, identify_function
+from common.functions import sigmoid, identify_function
 
 
 def init_network():

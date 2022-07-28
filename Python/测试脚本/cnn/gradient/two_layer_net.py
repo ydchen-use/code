@@ -2,8 +2,8 @@ import os, sys
 sys.path.append(os.path.pardir)
 import numpy as np
 
-from utils.general_func import sigmoid, sigmoid_grad, softmax, cross_entropy_error
-from utils.gradient import numerical_gradient
+from common.functions import sigmoid, sigmoid_grad, softmax, cross_entropy_error
+from common.gradient import numerical_gradient
 
 
 class TwoLayerNet:

@@ -5,8 +5,8 @@ import numpy as np
 
 from collections import OrderedDict
 
-from layers.layers import Relu, SoftmaxWithLoss, Affine
-from 测试脚本.cnn.utils.gradient import numerical_gradient
+from common.layers import Relu, SoftmaxWithLoss, Affine
+from common.gradient import numerical_gradient
 
 
 class TwoLayerNet:
